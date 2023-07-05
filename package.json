@@ -1,0 +1,12 @@
+{
+  "name": "train-vue",
+  "version": "1.0.0",
+  "description": "Learn vue",
+  "main": "vue_3_use_conditional_evaluation.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["vue"],
+  "author": "Peter Stackebrandt",
+  "license": "ISC"
+}
