@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Titel</title>
+  <style>
+    .container {
+      position: relative;
+      display: block;
+      padding: 5px;
+      margin: 5px;
+      background: #eee;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+  </style>
+
+  <script type="module">
+    'use strict';
+
+    import { createApp } from './vue.esm-browser-3-3-4.js';
+
+    createApp({
+      data() {
+        // Um sicherzugehen, dass alle Instanzen dieser Komponente individuell sind, 
+        // wird data als Return einer Funktion erzeugt. Es wird ein Objekt zurückgegeben,
+        // das die Daten enthält.
+        return {
+          x: 25,
+          y: 14
+        }
+      }
+    }).mount('#app');
+
+  </script>
+</head>
+
+<body>
+  <h1>Use conditional evaluation</h1>
+
+  <main>
+
+    <div id="app" class="container">
+      <!-- In einer Expression können die Variablen aus der App angesprochen werden -->
+      We can use conditional evaluation to check if the variables are set and whether they are numbers.<br>
+      Thereby we can deactivate elements or show error messages.
+
+      (We get the variables from the app: x = {{ x }} and y = {{ y }}.)
+      <p>
+        <!-- Die model-Direktive verknüpft die Eingabe mit der Variablen per bidirektionaler Datenbindung-->
+        <label for="input-x">Enter value for x:</label>
+        <input id="input-x" v-model="x" placeholder="Enter value for x" />
+
+        <label for="input-y">Enter value for y:</label>
+        <input id="input-y" v-model="y" placeholder="Enter value for y" />
+
+        <!-- <input v-model="x" /> -->
+
+      <p v-if="!(x && y)">
+        Bitte füllen Sie alle Felder aus!
+      </p>
+      <p v-else-if="isNaN(x*y)">
+        Bitte nur mit Zahlen arbeiten!
+      </p>
+      <p v-else>
+        {{ x * y }}
+      </p>
+
+      Calculate: x * y = {{ x * y }}
+      </p>
+
+      <p>
+        After changing the input fields, the variables and their representation on the page will be updated.
+      </p>
+      <p>
+        Try to enter a non-number in one of the input fields.
+      </p>
+
+  </main>
+
+</body>
+
+</html>
