@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Titel</title>
+  <style>
+    .container {
+      position: relative;
+      display: block;
+      padding: 5px;
+      margin: 5px;
+      background: #eee;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+  </style>
+
+  <script type="module">
+    'use strict';
+
+    import { createApp } from './vue.esm-browser-3-3-4.js';
+
+    createApp().mount('#app');
+  </script>
+</head>
+
+<body>
+
+  <main>
+    <div id="app" class="container">
+      
+      <p>
+        Calculate: 12 * 23 = {{ 12 * 23 }}
+      </p>
+      <p>
+        Show random number: {{ ~~(Math.random() * 100) }}
+      </p>
+    </div>
+
+    <div id="outer" class="container">
+      Not in Vue, expression not evalueated {{ 12 * 23 }}
+    </div>
+  </main>
+
+</body>
+
+</html>
