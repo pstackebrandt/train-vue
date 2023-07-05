@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Titel</title>
+  <style>
+    /* .container {
+      position: relative;
+      display: block;
+      padding: 5px;
+      margin: 5px;
+      background: #eee;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    } */
+  </style>
+
+  <!-- Einbindung der Bootstrap 5 CSS-Datei -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+
+  <script type="module">
+    'use strict';
+
+    import { createApp } from './vue.esm-browser-3-3-4.js';
+
+    createApp({
+      data() {
+        return {
+          // Bild eines Vogels
+          imgURL: 'img/pexels-ellie-burgin-17302550.jpg',
+          height: 200,
+          subtitle: 'A bird image'
+        }
+      }
+    }).mount('#app');
+
+  </script>
+</head>
+
+<body class="bg-light">
+  <h1 class="text-center py-3">Use data binding</h1>
+
+  <main class="container">
+
+    <div id="app" class="container">
+      <!-- In einer Expression können die Variablen aus der App angesprochen werden -->
+      <div class="alert alert-info" role="alert">
+        With data binding, attributes can be linked to variables from the app.
+      </div>
+      <div>
+        <!-- Mit Databinding können Attribute mit Variablen aus der App verknüpft werden -->
+        <!-- <img v-bind:src="imgURL" v-bind:height="height"/> -->
+
+        <!-- Kurzsyntax für binding ist ":" -->
+        <img class="rounded" :src="imgURL" :height="height" alt="subtitle" />
+        <br>
+        <sub>{{ subtitle }}</sub>
+      <details class="p-3 mb-2 bg-light text-dark border rounded">
+        <summary class="fw-bold">Click to show/hide the details</summary>
+        <div class="ps-3 mt-2">
+          url = "{{ imgURL }}"<br>
+          height = "{{ height }}"
+        </div>
+      </details>
+    </div>
+
+  </main>
+  <!-- Einbindung der Bootstrap 5 JS-Datei -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-vgysuL2xPm4JfK9WK3jFKwjDgKCzCZigZ4Ck5BdPtF+to8xM6B5z6W5x00+1632MG"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
