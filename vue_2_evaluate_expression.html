@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Titel</title>
+  <style>
+    .container {
+      position: relative;
+      display: block;
+      padding: 5px;
+      margin: 5px;
+      background: #eee;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+  </style>
+
+  <script type="module">
+    'use strict';
+
+    import { createApp } from './vue.esm-browser-3-3-4.js';
+
+    createApp({
+      data() {
+        // Um sicherzugehen, dass alle Instanzen dieser Komponente individuell sind, 
+        // wird data als Return einer Funktion erzeugt. Es wird ein Objekt zurückgegeben,
+        // das die Daten enthält.
+        return {
+          x: 25,
+          y: 14
+        }
+      }
+    }).mount('#app');
+
+  </script>
+</head>
+
+<body>
+  <h1>Use variables from vue app</h1>
+  <main>
+
+    <div id="app" class="container">
+      <!-- In einer Expression können die Variablen aus der App angesprochen werden -->
+      We get the variables from the app: x = {{ x }} and y = {{ y }}.
+      <p>
+        Calculate: x * y = {{ x * y }}
+      </p>
+    </div>
+  </main>
+
+</body>
+
+</html>
