@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Titel</title>
+  <style>
+    /* .container {
+      position: relative;
+      display: block;
+      padding: 5px;
+      margin: 5px;
+      background: #eee;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    } */
+
+    .thumbnail {
+      position: relative;
+      display: inline-block;
+      margin: 5px;
+    }
+  </style>
+
+  <!-- Einbindung der Bootstrap 5 CSS-Datei -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <script type="module">
+    'use strict';
+
+    import { createApp } from './vue.esm-browser-3-3-4.js';
+
+    createApp({
+      data() {
+        return {
+          // Bird images
+          // Arrays in einer Vue-App sollten mit Objekten befüllt werden.
+          // Objekte haben den Vorteil, dass sie mit Schlüssel-Wert-Paaren arbeiten
+          // und somit die Daten besser strukturiert sind.
+          // Es kann auch leicht ein Attribut hinzugefügt oder entfernt werden.
+
+          imgs: [
+            {
+              url: 'img/pexels-ellie-burgin-17302550.jpg',
+              subtext: 'Rotkehlchen'
+            }, {
+              url: 'img/pexels-jiří-16725560.jpg',
+              subtext: 'Eule'
+            }, {
+              url: 'img/pexels-jonnathan-marin-16677695.jpg',
+              subtext: 'Kolibri'
+            }, {
+              url: 'img/pexels-molnár-tamás-photography™-16681851.jpg',
+              subtext: 'Kronenkranich'
+            }, {
+              url: 'img/pexels-rajukhan-pathan-16721458.jpg',
+              subtext: 'Habicht (vermutlich)'
+            },
+          ],
+          index: 0,
+          height: 300,
+          thumbHeight: 100
+        }
+      },
+      methods: {}
+    }).mount('#app');
+
+  </script>
+</head>
+
+<body class="bg-light">
+  <h1 class="text-center py-3">Use data binding</h1>
+
+  <main class="container">
+
+    <div id="app" class="container">
+      <!-- In einer Expression können die Variablen aus der App angesprochen werden -->
+      <div class="alert alert-info" role="alert">
+      </div>
+      <div>
+        <!-- mit v-for können Arrays iteriert werden. In den Schleifenkörper wird das Objekt aus dem Array übergeben -->
+        <!-- die for-Direktive kann neben dem Wert auch den Schlüssel mitnehmen -->
+        <!-- @ ist die Kurzsyntax für v-on -->
+        <div v-for="(img, key) in imgs" class="thumbnail" @click="index = key">
+          <img :src="img.url" :height="thumbHeight" alt="Thumbnail image" />
+          <p>
+            <sub>{{ img.subtext }}</sub>
+          </p>
+
+          <br>
+          <details class="p-3 mb-2 bg-light text-dark border rounded">
+            <summary class="fw-bold">Details</summary>
+            <div class="ps-3 mt-2">
+              url = "{{ img.url }}"<br>
+              height = "{{ img.height }}"
+            </div>
+          </details>
+        </div>
+      </div>
+
+  </main>
+  <!-- Einbindung der Bootstrap 5 JS-Datei -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-vgysuL2xPm4JfK9WK3jFKwjDgKCzCZigZ4Ck5BdPtF+to8xM6B5z6W5x00+1632MG"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
