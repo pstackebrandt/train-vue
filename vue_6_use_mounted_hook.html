@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Titel</title>
+  <style>
+    /* .container {
+      position: relative;
+      display: block;
+      padding: 5px;
+      margin: 5px;
+      background: #eee;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    } */
+  </style>
+
+  <!-- Einbindung der Bootstrap 5 CSS-Datei -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+
+  <script type="module">
+    'use strict';
+
+    import { createApp } from './vue.esm-browser-3-3-4.js';
+
+    createApp({
+      data() {
+        return {
+          // Bird images
+          imgURLs: [
+            'img/pexels-ellie-burgin-17302550.jpg',
+            'img/pexels-jiří-16725560.jpg',
+            'img/pexels-jonnathan-marin-16677695.jpg',
+            'img/pexels-molnár-tamás-photography™-16681851.jpg',
+            'img/pexels-rajukhan-pathan-16721458.jpg',
+          ],
+          index: 0,
+          height: 300
+        }
+      },
+      methods: {
+        dekrement() {
+          this.index = (this.index > 0) ? this.index - 1 : this.imgURLs.length - 1
+        },
+        inkrement() {
+          this.index = (this.index < this.imgURLs.length - 1) ? this.index + 1 : 0;
+        }
+      },
+      mounted() { // mounted ist ein Lifecycle-Hook
+                // Diese Methode wird automatisch gefeuert, sobald diese Komponente in die Webseite eingehängt ist
+                setInterval(this.inkrement, 5000);
+            }
+    }).mount('#app');
+
+  </script>
+</head>
+
+<body class="bg-light">
+  <h1 class="text-center py-3">Use data binding</h1>
+
+  <main class="container">
+
+    <div id="app" class="container">
+      <!-- In einer Expression können die Variablen aus der App angesprochen werden -->
+      <div class="alert alert-info" role="alert">
+        With data binding, attributes can be linked to variables from the app.
+      </div>
+      <div>
+        <!-- Mit Databinding können Attribute mit Variablen aus der App verknüpft werden -->
+        <!-- <img v-bind:src="imgURL" v-bind:height="height"/> -->
+
+        <!-- Kurzsyntax für binding ist ":" -->
+        <img class="rounded" :src="imgURLs[index]" :height="height" alt="subtitle" />
+        <br>
+        <sub>{{ subtitle }}</sub>
+        <br>
+        <div>
+          <button v-on:click="dekrement" class="btn btn-outline-primary mx-2" title="Previous Image">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+
+          <button v-on:click="inkrement" class="btn btn-outline-secondary mx-2" title="Next Image">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+        <br>
+        <details class="p-3 mb-2 bg-light text-dark border rounded">
+          <summary class="fw-bold">Click to show/hide the details</summary>
+          <div class="ps-3 mt-2">
+            url = "{{ imgURLs[index] }}"<br>
+            height = "{{ height }}"
+          </div>
+        </details>
+      </div>
+
+  </main>
+  <!-- Einbindung der Bootstrap 5 JS-Datei -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-vgysuL2xPm4JfK9WK3jFKwjDgKCzCZigZ4Ck5BdPtF+to8xM6B5z6W5x00+1632MG"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
