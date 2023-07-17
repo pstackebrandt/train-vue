@@ -42,12 +42,14 @@
 
           imgs: [{
             url: 'https://images.pexels.com/photos/371589/pexels-photo-371589.jpeg?cs=srgb&dl=baume-berge-feld-371589.jpg&fm=jpg',
-            subtext: 'Berge'
+            subtext: 'Berge'},
+            {
+            url: 'https://images.pexels.com/photos/371589/pexels-photo-371589.jpeg?cs=srgb&dl=baume-berge-feld-371589.jpg&fm=jpg',
+            subtext: 'Täler'
           }
           ],
           index: 0,
-          height: 300,
-          thumbHeight: 100,
+          height: 150,
           newURL: '',
           newSubtext: ''
         }
@@ -70,36 +72,38 @@
 </head>
 
 <body class="bg-light container">
-  <h1 class="display-1 text-center py-3">Add file by use of it't url</h1>
+  <h1 class="display-1  text-center py-3">Add file by use of it's url</h1>
   <main class="container">
     <div id="app" class="container">
-      <div>
-        <!-- mit v-for können Arrays iteriert werden. In den Schleifenkörper wird das Objekt aus dem Array übergeben -->
-        <!-- die for-Direktive kann neben dem Wert auch den Schlüssel mitnehmen -->
-        <!-- @ ist die Kurzsyntax für v-on -->
-        <div v-for="(img, key) in imgs" class="card" @click="index = key">
-          <img :src="img.url" :height="thumbHeight" class="card-img-top thumbnail" alt="Thumbnail image" />
-          <div class="card-body">
-            <p class="card-text">{{ img.subtext }}</p>
+      <!-- mit v-for können Arrays iteriert werden. In den Schleifenkörper wird das Objekt aus dem Array übergeben -->
+      <!-- die for-Direktive kann neben dem Wert auch den Schlüssel mitnehmen -->
+      <!-- @ ist die Kurzsyntax für v-on -->
+      <div id="imageViewer" v-for="(img, key) in imgs" class="card" @click="index = key">
+        <img :src="img.url" :style="{ height: '100px', objectFit: 'contain' }" class="card-img-top" alt="Thumbnail image" />
+        <div class="card-body">
+          <p class="card-text">{{ img.subtext }}</p>
 
-          </div>
-          <div class="card-footer">
-            <details class="p-3 mb-2 bg-light text-dark border rounded">
-              <summary class="fw-bold">Details</summary>
-              <div class="ps-3 mt-2">
-                url = "{{ img.url }}"<br>
-                height = "{{ height }}"
-              </div>
-            </details>
-          </div>
+        </div>
+        <div class="card-footer">
+          <details class="p-3 mb-2 bg-light text-dark border rounded">
+            <summary class="fw-bold">Details</summary>
+            <div class="ps-3 mt-2">
+              url = "{{ img.url }}"<br>
+              height = "{{ height }}"
+            </div>
+          </details>
         </div>
       </div>
 
       <!-- Hinzufügen eines neuen Bildes -->
       <div>
-        <input v-model="newURL" placeholder="URL" />
-        <input v-model="newSubtext" placeholder="Subtext" />
-        <button @click="addNewImg" class="btn btn-primary">Add</button><br>
+
+        <div id="inputNewImg" class="mb-3 input-group">
+          <input v-model="newURL" class="" placeholder="URL" />
+          <input v-model="newSubtext" class="ml-3" placeholder="Subtext" />
+          <button @click="addNewImg" class="btn btn-primary ml-3">Add</button><br>
+        </div>
+
         <div class="mb-3">
           <label for="image-url">Example image URL:</label>
           <p id="example-image-url" placeholder="Example on an image url">
