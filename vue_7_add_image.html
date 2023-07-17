@@ -8,6 +8,7 @@
   <!-- use bootstrap 5 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
   <title>Add Image</title>
+
   <style>
     .thumbnail {
       position: relative;
@@ -39,7 +40,11 @@
           // und somit die Daten besser strukturiert sind.
           // Es kann auch leicht ein Attribut hinzugefügt oder entfernt werden.
 
-          imgs: [],
+          imgs: [{
+            url: 'https://images.pexels.com/photos/371589/pexels-photo-371589.jpeg?cs=srgb&dl=baume-berge-feld-371589.jpg&fm=jpg',
+            subtext: 'Berge'
+          }
+          ],
           index: 0,
           height: 300,
           thumbHeight: 100,
@@ -72,27 +77,29 @@
         <!-- mit v-for können Arrays iteriert werden. In den Schleifenkörper wird das Objekt aus dem Array übergeben -->
         <!-- die for-Direktive kann neben dem Wert auch den Schlüssel mitnehmen -->
         <!-- @ ist die Kurzsyntax für v-on -->
-        <div v-for="(img, key) in imgs" class="thumbnail" @click="index = key">
-          <img :src="img.url" :height="thumbHeight" alt="Thumbnail image" />
-          <p>
-            <sub>{{ img.subtext }}</sub>
-          </p>
+        <div v-for="(img, key) in imgs" class="card" @click="index = key">
+          <img :src="img.url" :height="thumbHeight" class="card-img-top thumbnail" alt="Thumbnail image" />
+          <div class="card-body">
+            <p class="card-text">{{ img.subtext }}</p>
 
-          <br>
-          <details class="p-3 mb-2 bg-light text-dark border rounded">
-            <summary class="fw-bold">Details</summary>
-            <div class="ps-3 mt-2">
-              url = "{{ img.url }}"<br>
-              height = "{{ img.height }}"
-            </div>
-          </details>
+          </div>
+          <div class="card-footer">
+            <details class="p-3 mb-2 bg-light text-dark border rounded">
+              <summary class="fw-bold">Details</summary>
+              <div class="ps-3 mt-2">
+                url = "{{ img.url }}"<br>
+                height = "{{ height }}"
+              </div>
+            </details>
+          </div>
         </div>
+      </div>
 
       <!-- Hinzufügen eines neuen Bildes -->
       <div>
         <input v-model="newURL" placeholder="URL" />
         <input v-model="newSubtext" placeholder="Subtext" />
-        <button @click="addNewImg">Add</button><br>
+        <button @click="addNewImg" class="btn btn-primary">Add</button><br>
         <div class="mb-3">
           <label for="image-url">Example image URL:</label>
           <p id="example-image-url" placeholder="Example on an image url">
@@ -100,12 +107,12 @@
           </p>
         </div>
       </div>
+    </div>
   </main>
   <!-- Einbindung der Bootstrap 5 JS-Datei -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
     integrity="sha384-vgysuL2xPm4JfK9WK3jFKwjDgKCzCZigZ4Ck5BdPtF+to8xM6B5z6W5x00+1632MG"
     crossorigin="anonymous"></script>
-
 </body>
 
 </html>
