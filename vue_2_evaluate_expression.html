@@ -16,15 +16,17 @@ Content: Template expressions, reactive calculations, data binding basics
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vue 3 Expression Evaluation</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
   <style>
-    .container {
-      position: relative;
-      display: block;
-      padding: 5px;
-      margin: 5px;
-      background: #eee;
-      border: 1px solid #aaa;
-      border-radius: 5px;
+    /* Vue Learning Content - highlighted for educational focus */
+    .vue-example {
+      background: #f8f9fa;
+      border: 2px solid #0d6efd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px 0;
     }
   </style>
 
@@ -34,13 +36,15 @@ Content: Template expressions, reactive calculations, data binding basics
     import { createApp } from './vue.esm-browser-3-5-18.js';
 
     createApp({
+      // The data() function defines reactive variables that Vue will track for changes
+      // When these variables change, Vue automatically updates the template
       data() {
         // Um sicherzugehen, dass alle Instanzen dieser Komponente individuell sind, 
         // wird data als Return einer Funktion erzeugt. Es wird ein Objekt zurückgegeben,
         // das die Daten enthält.
         return {
-          x: 25,
-          y: 14
+          x: 25,  // These values can be used in template expressions like {{ x }}
+          y: 14   // Vue will automatically calculate {{ x * y }} when either changes
         }
       }
     }).mount('#app');
@@ -48,27 +52,48 @@ Content: Template expressions, reactive calculations, data binding basics
   </script>
 </head>
 
-<body>
-  <h1>Vue 3 Expression Evaluation</h1>
-  
-  <section class="container" style="margin-bottom: 20px;">
-    <h2>Purpose</h2>
-    <p>Understand how Vue evaluates mathematical expressions and displays dynamic content in templates.</p>
+<body class="bg-light">
+  <div class="container-fluid py-4">
+    <h1 class="text-center mb-4 text-primary">Vue 3 Expression Evaluation</h1>
     
-    <h2>Content</h2>
-    <p>This example demonstrates: Template expressions, reactive calculations, and data binding basics with mathematical operations.</p>
-  </section>
-
-  <main>
-
-    <div id="app" class="container">
-      <!-- In einer Expression können die Variablen aus der App angesprochen werden. -->
-      We get the variables from the app: x = {{ x }} and y = {{ y }}.
-      <p>
-        Calculate: x * y = {{ x * y }}
-      </p>
+    <!-- Learning Documentation -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h5 class="card-title text-secondary">📚 Purpose</h5>
+                <p class="card-text">Understand how Vue evaluates mathematical expressions and displays dynamic content in templates.</p>
+              </div>
+              <div class="col-md-6">
+                <h5 class="card-title text-secondary">🔧 Content</h5>
+                <p class="card-text">Template expressions, reactive calculations, data binding basics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </main>
+
+    <!-- Vue Learning Example -->
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div id="app" class="vue-example">
+          <h3 class="text-primary mb-3">🧮 Vue Expression Evaluation</h3>
+          <!-- In einer Expression können die Variablen aus der App angesprochen werden. -->
+          <p class="fs-5">
+            We get the variables from the app: 
+            <span class="badge bg-info">x = {{ x }}</span> and 
+            <span class="badge bg-info">y = {{ y }}</span>
+          </p>
+          <p class="fs-4 text-center">
+            <strong>Calculate: x * y = <span class="text-success">{{ x * y }}</span></strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 

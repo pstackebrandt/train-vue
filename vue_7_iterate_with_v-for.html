@@ -24,10 +24,28 @@ Content: v-for directive, key binding, object arrays, click events
     }
   </style>
 
-  <!-- Einbindung der Bootstrap 5 CSS-Datei -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  
+  <style>
+    /* Vue Learning Content - highlighted for educational focus */
+    .vue-example {
+      background: #f8f9fa;
+      border: 2px solid #0d6efd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px 0;
+    }
+    .thumbnail {
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .thumbnail:hover {
+      transform: scale(1.05);
+    }
+  </style>
 
   <script type="module">
     'use strict';
@@ -42,6 +60,9 @@ Content: v-for directive, key binding, object arrays, click events
           // Objekte haben den Vorteil, dass sie mit Schlüssel-Wert-Paaren arbeiten
           // und somit die Daten besser strukturiert sind.
           // Es kann auch leicht ein Attribut hinzugefügt oder entfernt werden.
+          
+          // ARRAY FOR v-for: This array will be iterated in the template using v-for directive
+          // Each object becomes available as 'img' variable in the v-for loop
 
           imgs: [
             {
@@ -73,42 +94,62 @@ Content: v-for directive, key binding, object arrays, click events
 </head>
 
 <body class="bg-light">
-  <h1 class="text-center py-3">Vue 3 List Rendering</h1>
-  
-  <section class="container" style="margin-bottom: 20px;">
-    <h2>Purpose</h2>
-    <p>Learn how to display dynamic lists and iterate through data arrays using Vue's list rendering capabilities.</p>
+  <div class="container-fluid py-4">
+    <h1 class="text-center mb-4 text-primary">Vue 3 List Rendering</h1>
     
-    <h2>Content</h2>
-    <p>This example demonstrates: v-for directive, key binding, object arrays, click events, and dynamic list interaction.</p>
-  </section>
-
-  <main class="container">
-
-    <div id="app" class="container">
-      <!-- In einer Expression können die Variablen aus der App angesprochen werden -->
-      <div class="alert alert-info" role="alert">
-      </div>
-      <div>
-        <!-- mit v-for können Arrays iteriert werden. In den Schleifenkörper wird das Objekt aus dem Array übergeben -->
-        <!-- die for-Direktive kann neben dem Wert auch den Schlüssel mitnehmen -->
-        <!-- @ ist die Kurzsyntax für v-on -->
-        <div v-for="(img, key) in imgs" class="thumbnail" @click="index = key">
-          <img :src="img.url" :height="thumbHeight" alt="Thumbnail image" />
-          <p>
-            <sub>{{ img.subtext }}</sub>
-          </p>
-
-          <br>
-          <details class="p-3 mb-2 bg-light text-dark border rounded">
-            <summary class="fw-bold">Details</summary>
-            <div class="ps-3 mt-2">
-              url = "{{ img.url }}"<br>
-              height = "{{ img.height }}"
+    <!-- Learning Documentation -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-10">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h5 class="card-title text-secondary">📚 Purpose</h5>
+                <p class="card-text">Learn how to display dynamic lists and iterate through data arrays using Vue's list rendering capabilities.</p>
+              </div>
+              <div class="col-md-6">
+                <h5 class="card-title text-secondary">🔧 Content</h5>
+                <p class="card-text">v-for directive, key binding, object arrays, click events, dynamic list interaction</p>
+              </div>
             </div>
-          </details>
+          </div>
         </div>
       </div>
+    </div>
+
+    <!-- Vue Learning Example -->
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div id="app" class="vue-example">
+          <h3 class="text-primary mb-3">🔁 Vue List Rendering with v-for</h3>
+          
+          <div class="alert alert-info mb-4">
+            💡 <strong>v-for Directive:</strong> Click any thumbnail to see how Vue handles dynamic list interactions
+          </div>
+
+          <!-- v-for DIRECTIVE: Creates one element for each item in the 'imgs' array -->
+          <!-- (img, key) gives us both the object data and its array index -->
+          <!-- @click demonstrates event handling with the array index -->
+          <div class="row justify-content-center">
+            <div v-for="(img, key) in imgs" :key="key" class="col-md-4 col-lg-3 mb-4">
+              <div class="card thumbnail" @click="index = key" style="cursor: pointer;">
+                <img :src="img.url" :height="thumbHeight" class="card-img-top" alt="Thumbnail image" style="object-fit: cover;" />
+                <div class="card-body p-2">
+                  <p class="card-text text-center">
+                    <small class="text-muted">{{ img.subtext }}</small>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-secondary mt-4">
+            <strong>Currently selected:</strong> {{ imgs[index]?.subtext || 'None' }} (Index: {{ index }})
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   </main>
   <!-- Einbindung der Bootstrap 5 JS-Datei -->

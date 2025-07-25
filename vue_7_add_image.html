@@ -15,26 +15,27 @@ Content: User input, array manipulation, push(), form handling
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- use bootstrap 5 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
   <title>Vue 3 Dynamic Content Addition</title>
-
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  
   <style>
-    .thumbnail {
-      position: relative;
-      display: inline-block;
-      margin: 5px;
+    /* Vue Learning Content - highlighted for educational focus */
+    .vue-example {
+      background: #f8f9fa;
+      border: 2px solid #0d6efd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px 0;
     }
-
-    #example-image-url {
-      width: 100%;
+    .image-card {
+      transition: transform 0.2s;
+    }
+    .image-card:hover {
+      transform: scale(1.02);
     }
   </style>
-
-  <!-- Einbindung der Bootstrap 5 CSS-Datei -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 
   <script type="module">
     'use strict';
@@ -65,13 +66,17 @@ Content: User input, array manipulation, push(), form handling
         }
       },
       methods: {
+        // METHOD: This function demonstrates dynamic array manipulation in Vue
+        // When called by @click="addNewImg", it adds new data and Vue automatically updates the display
         addNewImg() {
           // Neues Bild-Objekt einhängen
+          // push() adds a new object to the imgs array - Vue detects this change and re-renders v-for
           this.imgs.push({
-            url: this.newURL,
-            subtext: this.newSubtext
+            url: this.newURL,    // Get value from v-model="newURL" input field
+            subtext: this.newSubtext  // Get value from v-model="newSubtext" input field
           })
           // Eigabefelder leeren
+          // Clear the input fields by resetting the v-model bound variables
           this.newURL = '';
           this.newSubtext = '';
         }
@@ -81,18 +86,34 @@ Content: User input, array manipulation, push(), form handling
   </script>
 </head>
 
-<body class="bg-light container">
-  <h1 class="display-1 text-center py-3">Vue 3 Dynamic Content Addition</h1>
-  
-  <section class="container" style="margin-bottom: 20px;">
-    <h2>Purpose</h2>
-    <p>Learn how to allow users to dynamically add new content to Vue data arrays through form inputs.</p>
+<body class="bg-light">
+  <div class="container-fluid py-4">
+    <h1 class="text-center mb-4 text-primary">Vue 3 Dynamic Content Addition</h1>
     
-    <h2>Content</h2>
-    <p>This example demonstrates: User input handling, array manipulation with push(), form handling, and dynamic content creation.</p>
-  </section>
+    <!-- Learning Documentation -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-10">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h5 class="card-title text-secondary">📚 Purpose</h5>
+                <p class="card-text">Learn how to allow users to dynamically add new content to Vue data arrays through form inputs.</p>
+              </div>
+              <div class="col-md-6">
+                <h5 class="card-title text-secondary">🔧 Content</h5>
+                <p class="card-text">User input handling, array manipulation with push(), form handling, dynamic content creation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <main class="container">
+    <!-- Vue Learning Example -->
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div id="app" class="vue-example">
     <div id="app" class="container">
       <!-- mit v-for können Arrays iteriert werden. In den Schleifenkörper wird das Objekt aus dem Array übergeben -->
       <!-- die for-Direktive kann neben dem Wert auch den Schlüssel mitnehmen -->
