@@ -30,7 +30,7 @@ This guide explains how to use the task management system for the Vue.js trainin
 
 ### 2. Assignment & Work Begin
 ```markdown
-- [ ] **P2** T007 [M] [Claude] Implement user authentication system
+- [ ] **P2** T001 [S] [Claude] Add Vue 3 Composition API examples
 ```
 - Move from **Backlog** to **Active Tasks**
 - Update AI assignment field
@@ -38,7 +38,7 @@ This guide explains how to use the task management system for the Vue.js trainin
 
 ### 3. Task Completion
 ```markdown
-- [x] ✅ **P2** T007 [M] [Claude] Implement user authentication system (2025-01-22)
+- [x] ✅ **P2** T001 [S] [Claude] Add Vue 3 Composition API examples (2025-01-25)
 ```
 - Move to **Completed Tasks** section
 - Add completion date
@@ -46,7 +46,7 @@ This guide explains how to use the task management system for the Vue.js trainin
 
 ### 4. Task Handoff (Between AIs)
 ```markdown
-- [ ] **P2** T007 [M] [Claude→Cursor] Implement user authentication system [Started by Claude, continuing with Cursor]
+- [ ] **P2** T002 [S] [Claude→Cursor] Create component communication examples [Started by Claude, continuing with Cursor]
 ```
 - Update AI field to show handoff
 - Add context comment about current state
@@ -156,8 +156,8 @@ grep "Active Tasks" -A 20 tasks/TASKS.md
 ## Integration with Development
 
 ### Git Workflow
-- Reference task IDs in commit messages: `git commit -m "T007: Add authentication middleware"`
-- Use task branches: `git checkout -b T007-user-auth`
+- Reference task IDs in commit messages: `git commit -m "T001: Add Composition API examples"`
+- Use task branches: `git checkout -b T001-composition-api`
 - Link pull requests to task numbers
 
 ### Documentation
