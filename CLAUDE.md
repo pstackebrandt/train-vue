@@ -7,7 +7,7 @@ This is a Vue.js learning project containing standalone HTML files that demonstr
 
 ## Architecture
 - **Standalone HTML files**: Each example is a complete HTML document with embedded Vue.js code
-- **Vue 3 ES Module**: Uses `vue.esm-browser-3-3-4.js` imported as ES module
+- **Vue 3 ES Module**: Uses `vue.esm-browser-3-5-18.js` imported as ES module
 - **No build process**: Files run directly in the browser without compilation
 - **Bootstrap 5**: Several examples use Bootstrap for styling
 - **Local assets**: Images stored in `img/` directory

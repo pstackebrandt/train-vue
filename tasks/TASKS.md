@@ -31,23 +31,23 @@
   - Add more advanced Bootstrap responsive examples
 
 ### Vue Version Updates
-- [ ] **P1** T009 [S] [Unassigned] Prepare Vue update environment
-  - Check latest Vue 3 version and migration guide
-  - Create git branch: `vue-update`
-  - Review breaking changes documentation
-- [ ] **P1** T010 [S] [Unassigned] Download and integrate new Vue version
-  - Download latest `vue.esm-browser.js` from Vue CDN
-  - Rename to version-specific filename
-  - Update import statements in all vue_*.html files
-- [ ] **P1** T011 [M] [Unassigned] Test basic Vue examples after update
-  - Test vue_1_einbinden.html and vue_2_evaluate_expression.html
-  - Test vue_3_input_field_and_databinding.html
-  - Fix any breaking changes or console errors
-- [ ] **P1** T012 [M] [Unassigned] Test advanced Vue features after update
-  - Test lifestyle hooks (vue_6_use_mounted_hook.html)
-  - Test v-for iterations (vue_7_iterate_with_v-for.html)
-  - Test Bootstrap integration examples
-- [ ] **P2** T013 [S] [Unassigned] Update documentation for new Vue version
+- [x] ✅ **P1** T009 [S] [Claude] Prepare Vue update environment (2025-07-25)
+  - ✅ Check latest Vue 3 version and migration guide (Vue 3.5.18)
+  - ✅ Create git branch: `vue-update`
+  - ✅ Review breaking changes documentation
+- [x] ✅ **P1** T010 [S] [Claude] Download and integrate new Vue version (2025-07-25)
+  - ✅ Download latest `vue.esm-browser.js` from Vue CDN
+  - ✅ Rename to version-specific filename: `vue.esm-browser-3-5-18.js`
+  - ✅ Update import statements in all 9 vue_*.html files
+- [x] ✅ **P1** T011 [M] [Claude] Test basic Vue examples after update (2025-07-25)
+  - ✅ Test vue_1_einbinden.html and vue_2_evaluate_expression.html
+  - ✅ Test vue_3_input_field_and_databinding.html
+  - ✅ No breaking changes or console errors found
+- [x] ✅ **P1** T012 [M] [Claude] Test advanced Vue features after update (2025-07-25)
+  - ✅ Test lifecycle hooks (vue_6_use_mounted_hook.html)
+  - ✅ Test v-for iterations (vue_7_iterate_with_v-for.html)
+  - ✅ Test Bootstrap integration examples
+- [ ] **P2** T013 [S] [Claude] Update documentation for new Vue version [Details](./session-state-vue-update.md)
   - Update README.md with new Vue version
   - Update CLAUDE.md project description
   - Update HTML file header comments
@@ -55,6 +55,12 @@
   - Test all examples in multiple browsers
   - Verify responsive behavior
   - Commit changes and merge to main
+
+### Project Quality
+- [x] ✅ **P2** T015 [S] [Claude] Create concise style guide for Vue project (2025-07-25)
+  - ✅ Vue.js Official Style Guide standards
+  - ✅ JavaScript Standard Style formatting
+  - ✅ Learning-focused guidelines with TOC
 
 ### Learning Resources
 - [ ] **P2** T007 [M] [Unassigned] Create comprehensive learning guide

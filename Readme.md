@@ -22,17 +22,18 @@ Learn Vue 3 concepts through standalone HTML examples that run directly in the b
 ### Development Setup
 - **Browser**: Any modern browser (Chrome, Firefox, Safari, Edge)
 - **Local server** (optional): `python -m http.server 8000` or Live Server extension
-- **No dependencies**: Vue.js included as local file (`vue.esm-browser-3-3-4.js`)
+- **No dependencies**: Vue.js included as local file (`vue.esm-browser-3-5-18.js`)
 
 ## Project Structure
 - **HTML files**: Self-contained Vue 3 examples
 - **`img/`**: Sample images for examples
-- **`vue.esm-browser-3-3-4.js`**: Vue 3 ES module (local copy)
+- **`vue.esm-browser-3-5-18.js`**: Vue 3 ES module (local copy)
 - **`tasks/`**: Project management and task tracking
 
 ## Code Sources & History
 - **Original**: Received in 2023 from teacher Christian Heisch (alfatraining JS course)
-- **Original Vue version**: 3.3.4 (`vue.esm-browser-3-3-4.js`)
+- **Original Vue version**: 3.3.4, updated to Vue 3.5.18 (2025-07-25)
+- **Current Vue version**: 3.5.18 (`vue.esm-browser-3-5-18.js`)
 - **Comments**: Original files contain minimal German comments; English comments may be added
 - **Status**: Extended and modified for comprehensive Vue 3 learning
 
