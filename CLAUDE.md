@@ -39,3 +39,63 @@ This is a Vue.js learning project containing standalone HTML files that demonstr
 
 ## File Naming Convention
 Files follow pattern: `vue_[number]_[description].html` with progressive complexity and feature introduction.
+
+## Task Management
+
+**Project Tasks**: All project tasks are tracked in `tasks\TASKS.md` using a structured format with priorities, sizes, and AI assignments. Always reference this file for current work items and project status.
+
+**Task Format**: `- [ ] **P[1-4]** T[###] [S/M/L/XL] [AI] Description`
+- **Priority**: P1 (Critical) → P4 (Low)
+- **Size**: S(mall), M(edium), L(arge), XL (epic)
+- **AI Assignment**: Claude, Cursor, VS, Other
+
+## Documentation
+
+### Documentation Guidelines
+- Project-specific docs go in respective project folders
+- Use Markdown for all documentation
+- Keep documentation up-to-date with code changes
+
+### Documentation Standards
+Follow structured documentation practices for consistency.
+
+**Priority Overrides**:
+- **Always use TOCs** for architecture documents, audits, and investigation reports
+- **Always use TOCs** for any document with 3+ sections (strict enforcement)
+
+## Development Guidelines
+
+### Code Quality & Linting
+- **Always prevent lint errors** before creating/updating files
+- **Use language identifiers in code blocks**
+- **Keep lines under 120 characters**
+- Follow consistent indentation and formatting
+
+### Testing
+- Test functionality in multiple browsers
+- Validate HTML and JavaScript syntax
+- Test responsive behavior on different screen sizes
+
+## Security Rules
+
+### CRITICAL Security Rules (Never Violate)
+- **Never write real passwords, API keys, or credentials in documentation** (even as examples)
+- **Never commit sensitive information to source control**
+- **Never expose production secrets in logs or error messages**
+
+### HIGH Priority Security Practices
+- Use placeholder text for sensitive examples: `"your_password"`, `"YourApiKey"`
+- Follow secure coding practices in JavaScript
+- Validate user inputs and sanitize data
+- Use HTTPS for any external resources
+
+### Security Examples
+✅ **Correct Documentation**:
+```javascript
+const apiKey = "your_api_key_here";
+```
+
+❌ **Never Do This**:
+```javascript
+const apiKey = "sk-1234567890abcdef";  // Real API key!
+```
