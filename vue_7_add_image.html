@@ -5,6 +5,11 @@
   Originally used Vue version 3.3.4, updated to Vue 3.5.18 (2025-07-25)
   Uses vue.esm-browser-3-5-18.js
 -->
+<!-- 
+=== VUE LEARNING EXAMPLE ===
+Purpose: Allow users to dynamically add content to Vue data arrays
+Content: User input, array manipulation, push(), form handling
+-->
 
 <head>
   <meta charset="UTF-8">
@@ -12,7 +17,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- use bootstrap 5 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-  <title>Add Image</title>
+  <title>Vue 3 Dynamic Content Addition</title>
 
   <style>
     .thumbnail {
@@ -77,7 +82,16 @@
 </head>
 
 <body class="bg-light container">
-  <h1 class="display-1  text-center py-3">Add file by use of it's url</h1>
+  <h1 class="display-1 text-center py-3">Vue 3 Dynamic Content Addition</h1>
+  
+  <section class="container" style="margin-bottom: 20px;">
+    <h2>Purpose</h2>
+    <p>Learn how to allow users to dynamically add new content to Vue data arrays through form inputs.</p>
+    
+    <h2>Content</h2>
+    <p>This example demonstrates: User input handling, array manipulation with push(), form handling, and dynamic content creation.</p>
+  </section>
+
   <main class="container">
     <div id="app" class="container">
       <!-- mit v-for können Arrays iteriert werden. In den Schleifenkörper wird das Objekt aus dem Array übergeben -->
