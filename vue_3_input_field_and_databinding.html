@@ -44,12 +44,24 @@ Content: v-model directive, data() function, reactive variables
 
     createApp({
       data() {
-        // Um sicherzugehen, dass alle Instanzen dieser Komponente individuell sind, 
-        // wird data als Return einer Funktion erzeugt. Es wird ein Objekt zurückgegeben,
-        // das die Daten enthält.
         return {
-          x: 25,  // v-model="x" will automatically sync this value with the input field
-          y: 14   // When user types in input, this value updates instantly (two-way binding)
+          // TWO-WAY BINDING: v-model creates bidirectional connection between input and data
+          // Direction 1: User types in input → this variable updates automatically
+          // Direction 2: Code changes this variable → input field updates automatically
+          x: 25,  
+          y: 14   
+        }
+      },
+      methods: {
+        // METHODS: These demonstrate programmatic data changes (Vue → input direction)
+        // When called, they update data variables and input fields sync automatically
+        setExampleValues() {
+          this.x = 50;
+          this.y = 25;
+        },
+        resetValues() {
+          this.x = 10;
+          this.y = 5;
         }
       }
     }).mount('#app');
@@ -73,7 +85,7 @@ Content: v-model directive, data() function, reactive variables
               </div>
               <div class="col-md-6">
                 <h5 class="card-title text-secondary">🔧 Content</h5>
-                <p class="card-text">v-model directive, data() function, reactive variables, real-time synchronization</p>
+                <p class="card-text">v-model directive, bidirectional binding, methods, @click events, programmatic data updates</p>
               </div>
             </div>
           </div>
@@ -104,19 +116,66 @@ Content: v-model directive, data() function, reactive variables
             <div class="col-md-6">
               <div class="mb-3">
                 <label for="input-x" class="form-label fw-bold">Enter value for x:</label>
+                <!-- v-model="x" HERE: Creates two-way binding between this input and data.x -->
                 <input id="input-x" v-model="x" placeholder="Enter value for x" class="form-control form-control-lg" />
               </div>
             </div>
             <div class="col-md-6">
               <div class="mb-3">
                 <label for="input-y" class="form-label fw-bold">Enter value for y:</label>
+                <!-- v-model="y" HERE: Creates two-way binding between this input and data.y -->
                 <input id="input-y" v-model="y" placeholder="Enter value for y" class="form-control form-control-lg" />
               </div>
             </div>
           </div>
 
+          <!-- Demonstration buttons for programmatic changes -->
+          <div class="text-center mb-4">
+            <h4 class="text-secondary mb-3">🎮 Test Both Binding Directions</h4>
+            <button @click="setExampleValues" class="btn btn-primary mx-2">
+              Set Values (x=50, y=25)
+            </button>
+            <button @click="resetValues" class="btn btn-secondary mx-2">
+              Reset Values (x=10, y=5)
+            </button>
+          </div>
+
           <div class="alert alert-info" role="alert">
-            💡 <strong>Try it:</strong> Change the input fields and watch how the variables and calculation update in real-time!
+            💡 <strong>Try it:</strong> 
+            <br>• Type in the input fields to see data update (Input → Data)
+            <br>• Click the buttons to see input fields update (Code → Input)
+          </div>
+        </div>
+        
+        <!-- Vue Two-Way Data Binding Explanation -->
+        <div class="mt-4">
+          <div class="card border-secondary">
+            <div class="card-header bg-secondary text-white">
+              <h4 class="card-title mb-0">🔍 How v-model Two-Way Binding Works</h4>
+            </div>
+            <div class="card-body">
+              <ol class="mb-0">
+                <li><strong>Create Connection:</strong> <code>v-model="x"</code> creates bidirectional link between input field and data variable</li>
+                <li><strong>Direction 1 - Input → Data:</strong> User types "99" → <code>x</code> becomes 99 instantly</li>
+                <li><strong>Direction 2 - Code → Input:</strong> Button sets <code>x = 50</code> → input field shows "50" instantly</li>
+                <li><strong>Automatic Updates:</strong> Both directions trigger reactive updates to all expressions using the variable</li>
+              </ol>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <div class="alert alert-success mb-0">
+                    💡 <strong>v-model vs {{ }}:</strong><br>
+                    • <code>v-model="x"</code> = two-way binding<br>
+                    • <code>{{ x }}</code> = one-way display only
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="alert alert-info mb-0">
+                    🔄 <strong>Key Insight:</strong><br>
+                    v-model combines <code>:value</code> and <code>@input</code> into one simple directive for perfect synchronization.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
