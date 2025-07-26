@@ -74,7 +74,11 @@
 
 ## Completed Tasks (Archive)
 
-*No completed tasks yet*
+- [x] ✅ **P1** T021 [S] [Claude] Add visual explanation to vue_2_evaluate_expression.html (2025-07-26)
+  - ✅ Added interactive input fields with v-model for real-time expression updates
+  - ✅ Created comprehensive explanation card showing how Vue expression evaluation works
+  - ✅ Added concrete examples: `{{ x }}` → variable, `{{ x * y }}` → calculation, `{{ "Hello!" }}` → literal text
+  - ✅ Enhanced learning progression from vue_1 (integration) to vue_2 (expressions + interactivity)
 
 ---
 

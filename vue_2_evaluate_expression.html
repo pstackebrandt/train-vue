@@ -81,15 +81,67 @@ Content: Template expressions, reactive calculations, data binding basics
       <div class="col-lg-8">
         <div id="app" class="vue-example">
           <h3 class="text-primary mb-3">🧮 Vue Expression Evaluation</h3>
-          <!-- In einer Expression können die Variablen aus der App angesprochen werden. -->
-          <p class="fs-5">
-            We get the variables from the app: 
-            <span class="badge bg-info">x = {{ x }}</span> and 
-            <span class="badge bg-info">y = {{ y }}</span>
-          </p>
-          <p class="fs-4 text-center">
-            <strong>Calculate: x * y = <span class="text-success">{{ x * y }}</span></strong>
-          </p>
+          
+          <div class="alert alert-info mb-4">
+            💡 <strong>Interactive Demo:</strong> Change the values below and watch Vue automatically recalculate expressions!
+          </div>
+
+          <!-- Interactive input fields to demonstrate reactive expression evaluation -->
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="input-x" class="form-label fw-bold">Value for x:</label>
+                <input id="input-x" v-model="x" type="number" class="form-control" placeholder="Enter number for x" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="input-y" class="form-label fw-bold">Value for y:</label>
+                <input id="input-y" v-model="y" type="number" class="form-control" placeholder="Enter number for y" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Expression evaluation examples -->
+          <div class="text-center mb-4">
+            <p class="fs-5">
+              Current variables: 
+              <span class="badge bg-info">x = {{ x }}</span> and 
+              <span class="badge bg-info">y = {{ y }}</span>
+            </p>
+            <p class="fs-4">
+              <strong>Calculate: x * y = <span class="text-success">{{ x * y }}</span></strong>
+            </p>
+            <p class="fs-5">
+              <span class="text-muted">More expressions: x + y = {{ x + y }}, x - y = {{ x - y }}</span>
+            </p>
+          </div>
+        </div>
+        
+        <!-- Vue Expression Evaluation Explanation -->
+        <div class="mt-4">
+          <div class="card border-secondary">
+            <div class="card-header bg-secondary text-white">
+              <h4 class="card-title mb-0">🔍 How Vue Expression Evaluation Works</h4>
+            </div>
+            <div class="card-body">
+              <ol class="mb-0">
+                <li><strong>Define Data:</strong> Variables in <code>data() { return { x: 25, y: 14 } }</code> become available in templates</li>
+                <li><strong>Template Expressions:</strong> Use different syntax types:
+                  <ul class="mt-2">
+                    <li><code>{{ x }}</code> → displays variable value: <strong>{{ x }}</strong></li>
+                    <li><code>{{ x * y }}</code> → displays calculation result: <strong>{{ x * y }}</strong></li>
+                    <li><code>{{ "Hello!" }}</code> → displays text: <strong>Hello!</strong></li>
+                  </ul>
+                </li>
+                <li><strong>Automatic Calculation:</strong> Vue evaluates mathematical expressions like <code>{{ x * y }}</code> in real-time</li>
+                <li><strong>Reactive Updates:</strong> When data changes (via v-model inputs), all expressions automatically recalculate and update the display</li>
+              </ol>
+              <div class="alert alert-success mt-3 mb-0">
+                💡 <strong>Key Insight:</strong> Vue expressions are JavaScript code inside <code>{{ }}</code> that can access data variables and perform calculations. They update automatically when the underlying data changes.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
