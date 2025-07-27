@@ -81,10 +81,15 @@ Content: v-model directive, data() function, reactive variables
             <div class="row">
               <div class="col-md-6">
                 <h5 class="card-title text-secondary">📚 Purpose</h5>
-                <p class="card-text">Learn how to create bidirectional data binding between form inputs and Vue data variables.</p>
+                <p class="card-text">Interactive example of two-way data binding between form inputs and Vue data.</p>
               </div>
               <div class="col-md-6">
-                <h5 class="card-title text-secondary">🔧 Content</h5>
+                <h5 class="card-title text-secondary">
+                  🔧 Content | 
+                  <a href="#format-section" class="text-decoration-none text-info">
+                    ⚙️ Options API
+                  </a>
+                </h5>
                 <p class="card-text">v-model directive, bidirectional binding, methods, @click events, programmatic data updates</p>
               </div>
             </div>
@@ -174,6 +179,29 @@ Content: v-model directive, data() function, reactive variables
                     v-model combines <code>:value</code> and <code>@input</code> into one simple directive for perfect synchronization.
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Vue Options API Format Reference -->
+        <div class="mt-4">
+          <div id="format-section" class="card border-info">
+            <div class="card-header bg-info text-white">
+              <h4 class="card-title mb-0">⚙️ Vue Options API Format</h4>
+            </div>
+            <div class="card-body">
+              <pre class="bg-light p-3 rounded"><code>createApp({
+  data() {
+    return { x: 25, y: 14 }
+  },
+  methods: {
+    setExampleValues() { /* update data */ },
+    resetValues() { /* reset data */ }
+  }
+}).mount('#app');</code></pre>
+              <div class="alert alert-info mt-3 mb-0">
+                💡 <strong>This Example:</strong> Two-way data binding with user input and programmatic updates.
               </div>
             </div>
           </div>

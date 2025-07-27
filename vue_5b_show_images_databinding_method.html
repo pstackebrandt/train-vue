@@ -98,10 +98,15 @@ Content: methods, event handling, image arrays, user interaction
             <div class="row">
               <div class="col-md-6">
                 <h5 class="card-title text-secondary">📚 Purpose</h5>
-                <p class="card-text">Learn how to create an interactive image gallery using Vue methods for user navigation.</p>
+                <p class="card-text">Hands-on practice with Vue methods for interactive navigation.</p>
               </div>
               <div class="col-md-6">
-                <h5 class="card-title text-secondary">🔧 Content</h5>
+                <h5 class="card-title text-secondary">
+                  🔧 Content | 
+                  <a href="#format-section" class="text-decoration-none text-info">
+                    ⚙️ Options API
+                  </a>
+                </h5>
                 <p class="card-text">methods, event handling, image arrays, user interaction, navigation controls</p>
               </div>
             </div>
@@ -178,6 +183,33 @@ Content: methods, event handling, image arrays, user interaction
                     Check bounds → Update index → Vue re-renders automatically
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Vue Options API Format Reference -->
+        <div class="mt-4">
+          <div id="format-section" class="card border-info">
+            <div class="card-header bg-info text-white">
+              <h4 class="card-title mb-0">⚙️ Vue Options API Format</h4>
+            </div>
+            <div class="card-body">
+              <pre class="bg-light p-3 rounded"><code>createApp({
+  data() {
+    return {
+      imgURLs: [...],
+      index: 0,
+      height: 300
+    }
+  },
+  methods: {
+    previous() { /* navigate backward */ },
+    next() { /* navigate forward */ }
+  }
+}).mount('#app');</code></pre>
+              <div class="alert alert-info mt-3 mb-0">
+                💡 <strong>This Example:</strong> Interactive image gallery with method-based navigation and array cycling.
               </div>
             </div>
           </div>

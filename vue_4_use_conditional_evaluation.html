@@ -60,10 +60,15 @@ Content: v-if, v-else, conditional logic, reactive conditionals
             <div class="row">
               <div class="col-md-6">
                 <h5 class="card-title text-secondary">📚 Purpose</h5>
-                <p class="card-text">Learn how to control element visibility and behavior based on data conditions using Vue's conditional directives.</p>
+                <p class="card-text">Working demonstration of conditional rendering with validation feedback.</p>
               </div>
               <div class="col-md-6">
-                <h5 class="card-title text-secondary">🔧 Content</h5>
+                <h5 class="card-title text-secondary">
+                  🔧 Content | 
+                  <a href="#format-section" class="text-decoration-none text-info">
+                    ⚙️ Options API
+                  </a>
+                </h5>
                 <p class="card-text">v-if, v-else, conditional logic, reactive conditionals, validation feedback</p>
               </div>
             </div>
@@ -149,6 +154,25 @@ Content: v-if, v-else, conditional logic, reactive conditionals
                     When input changes → Vue re-evaluates all conditions → DOM updates automatically
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Vue Options API Format Reference -->
+        <div class="mt-4">
+          <div id="format-section" class="card border-info">
+            <div class="card-header bg-info text-white">
+              <h4 class="card-title mb-0">⚙️ Vue Options API Format</h4>
+            </div>
+            <div class="card-body">
+              <pre class="bg-light p-3 rounded"><code>createApp({
+  data() {
+    return { x: 25, y: 14 }
+  }
+}).mount('#app');</code></pre>
+              <div class="alert alert-info mt-3 mb-0">
+                💡 <strong>This Example:</strong> Conditional rendering with validation logic and form feedback.
               </div>
             </div>
           </div>

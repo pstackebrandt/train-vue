@@ -64,10 +64,15 @@ Content: Template expressions, reactive calculations, data binding basics
             <div class="row">
               <div class="col-md-6">
                 <h5 class="card-title text-secondary">📚 Purpose</h5>
-                <p class="card-text">Understand how Vue evaluates mathematical expressions and displays dynamic content in templates.</p>
+                <p class="card-text">Demonstrates template expressions and reactive calculations with interactive input.</p>
               </div>
               <div class="col-md-6">
-                <h5 class="card-title text-secondary">🔧 Content</h5>
+                <h5 class="card-title text-secondary">
+                  🔧 Content | 
+                  <a href="#format-section" class="text-decoration-none text-info">
+                    ⚙️ Options API
+                  </a>
+                </h5>
                 <p class="card-text">Template expressions, reactive calculations, data binding basics</p>
               </div>
             </div>
@@ -139,6 +144,25 @@ Content: Template expressions, reactive calculations, data binding basics
               </ol>
               <div class="alert alert-success mt-3 mb-0">
                 💡 <strong>Key Insight:</strong> Vue expressions are JavaScript code inside <code>{{ }}</code> that can access data variables and perform calculations. They update automatically when the underlying data changes.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Vue Options API Format Reference -->
+        <div class="mt-4">
+          <div id="format-section" class="card border-info">
+            <div class="card-header bg-info text-white">
+              <h4 class="card-title mb-0">⚙️ Vue Options API Format</h4>
+            </div>
+            <div class="card-body">
+              <pre class="bg-light p-3 rounded"><code>createApp({
+  data() {
+    return { x: 25, y: 14 }
+  }
+}).mount('#app');</code></pre>
+              <div class="alert alert-info mt-3 mb-0">
+                💡 <strong>This Example:</strong> Template expressions with reactive calculations and v-model input binding.
               </div>
             </div>
           </div>

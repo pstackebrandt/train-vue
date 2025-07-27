@@ -62,7 +62,7 @@ Content: :src binding, Bootstrap integration, responsive images
             <div class="row">
               <div class="col-md-6">
                 <h5 class="card-title text-secondary">📚 Purpose</h5>
-                <p class="card-text">Learn how to combine Vue data binding with Bootstrap styling for responsive image display.</p>
+                <p class="card-text">Shows attribute binding with Bootstrap responsive styling.</p>
               </div>
               <div class="col-md-6">
                 <h5 class="card-title text-secondary">🔧 Content</h5>
@@ -138,6 +138,29 @@ Content: :src binding, Bootstrap integration, responsive images
                     Use Vue data to control Bootstrap responsive behavior and styling dynamically.
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Vue Options API Format Reference -->
+        <div class="mt-4">
+          <div id="format-section" class="card border-info">
+            <div class="card-header bg-info text-white">
+              <h4 class="card-title mb-0">⚙️ Vue Options API Format</h4>
+            </div>
+            <div class="card-body">
+              <pre class="bg-light p-3 rounded"><code>createApp({
+  data() {
+    return {
+      imgURL: 'img/bird.jpg',
+      height: 200,
+      subtitle: 'A bird image'
+    }
+  }
+}).mount('#app');</code></pre>
+              <div class="alert alert-info mt-3 mb-0">
+                💡 <strong>This Example:</strong> Attribute binding (:src, :height) with Bootstrap responsive styling.
               </div>
             </div>
           </div>

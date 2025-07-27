@@ -2,12 +2,24 @@
 
 ## Active Tasks (Current Sprint)
 
-- [ ] **P2** T022 [M] [Claude] Review and update remaining vue_n files for consistency and educational value
+- [x] ✅ **P2** T022 [M] [Claude] Review and update remaining vue_n files for consistency and educational value (2025-07-27)
   - [x] ✅ **P1** T027 [S] [Claude] Fix vue_4_use_conditional_evaluation.html - remove German boilerplate comments (2025-07-27)
   - [x] ✅ **P1** T028 [M] [Claude] Update vue_5_show_image_databinding_bootstrap.html - consistent styling, explanations, Bootstrap version (2025-07-27)
   - [x] ✅ **P1** T029 [M] [Claude] Update vue_5b_show_images_databinding_method.html - English method names, consistent structure (2025-07-27)
   - [x] ✅ **P1** T030 [M] [Claude] Update vue_6_use_mounted_hook.html - English method names, consistent structure (2025-07-27)
   - [x] ✅ **P1** T031 [L] [Claude] Completely rebuild vue_7_add_image.html - fix broken structure, rename to vue_7_dynamic_content_addition.html (2025-07-27)
+
+- [x] ✅ **P2** T032 [M] [Claude] Add Vue API markers and format sections to all vue files [Details](./planning/T032-vue-api-markers.md) (2025-07-27)
+  - [x] ✅ **P2** T032a [S] [Claude] Test API marker implementation on vue_6_use_mounted_hook.html (2025-07-27)
+  - [x] ✅ **P2** T032c [S] [Claude] Create DEVELOPER_GUIDE.md with file structure standards (2025-07-27)
+  - [x] ✅ **P2** T032d [S] [Claude] Update STYLE_GUIDE.md with API marker standards (2025-07-27)
+  - [x] ✅ **P2** T032e [S] [Claude] Update T032 planning document for file-specific approach (2025-07-27)
+  - [x] ✅ **P2** T032f [S] [Claude] Implement file-specific format sections for vue_1 and vue_6 (2025-07-27)
+  - [x] ✅ **P2** T032g [M] [Claude] Update remaining 8 vue files with API markers and file-specific formats (2025-07-27)
+
+- [x] ✅ **P2** T033 [S] [Claude] Update Purpose section language for accurate positioning (2025-07-27)
+  - [x] ✅ **P2** T033a [S] [Claude] Update DEVELOPER_GUIDE.md with educational language guidelines (2025-07-27)
+  - [x] ✅ **P2** T033b [S] [Claude] Update all Purpose sections with varied semantic language (2025-07-27)
 
 ---
 
@@ -99,6 +111,13 @@
   - ✅ Added author attribution and educational value section
   - ✅ Created DEPLOYMENT.md with comprehensive GitHub Pages hosting guide
   - ✅ Renamed Readme.md to README.md and removed job interview references
+
+- [x] ✅ **P2** T033 [S] [Claude] Update Purpose section language for accurate positioning (2025-07-27)
+  - ✅ Updated DEVELOPER_GUIDE.md with educational language guidelines
+  - ✅ Documented rationale for avoiding "Learn how to..." phrasing
+  - ✅ Provided approved phrases with linguistic variety
+  - ✅ Updated all 10 vue files with varied Purpose section language
+  - ✅ Positioned files as supplementary examples, not standalone lessons
 
 ---
 
