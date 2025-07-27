@@ -37,12 +37,10 @@ Content: v-if, v-else, conditional logic, reactive conditionals
 
     createApp({
       data() {
-        // Um sicherzugehen, dass alle Instanzen dieser Komponente individuell sind, 
-        // wird data als Return einer Funktion erzeugt. Es wird ein Objekt zurückgegeben,
-        // das die Daten enthält.
         return {
-          x: 25,  // These values will be used in v-if conditions to show/hide elements
-          y: 14   // Vue will re-evaluate conditions automatically when these change
+          // CONDITIONAL DATA: These values control visibility and validation in v-if conditions
+          x: 25,  // Input value used in conditional expressions - Vue re-evaluates when changed
+          y: 14   // Input value used in conditional expressions - Vue re-evaluates when changed
         }
       }
     }).mount('#app');
@@ -78,7 +76,7 @@ Content: v-if, v-else, conditional logic, reactive conditionals
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div id="app" class="vue-example">
-          <h3 class="text-primary mb-3">⚡ Vue Conditional Rendering</h3>
+          <h3 class="text-primary mb-3">⚡ Conditional Rendering with Validation</h3>
           
           <p class="fs-5 mb-3">
             Current values: 
@@ -120,6 +118,39 @@ Content: v-if, v-else, conditional logic, reactive conditionals
 
           <div class="alert alert-info mt-4">
             💡 <strong>Try it:</strong> Change the input fields and watch how Vue conditionally shows different messages based on validation rules!
+          </div>
+        </div>
+        
+        <!-- Vue Conditional Rendering Explanation -->
+        <div class="mt-4">
+          <div class="card border-secondary">
+            <div class="card-header bg-secondary text-white">
+              <h4 class="card-title mb-0">🔍 How Vue Conditional Rendering Works</h4>
+            </div>
+            <div class="card-body">
+              <ol class="mb-0">
+                <li><strong>Evaluation Order:</strong> Vue checks v-if conditions in sequence</li>
+                <li><strong>v-if:</strong> <code>!(x && y)</code> → shows warning if either field is empty</li>
+                <li><strong>v-else-if:</strong> <code>isNaN(x*y)</code> → shows error if calculation is invalid</li>
+                <li><strong>v-else:</strong> Shows success result when both conditions above are false</li>
+              </ol>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <div class="alert alert-success mb-0">
+                    💡 <strong>Validation Pattern:</strong><br>
+                    • Check for missing data first<br>
+                    • Check for invalid data second<br>
+                    • Show success result last
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="alert alert-info mb-0">
+                    🔄 <strong>Reactive Updates:</strong><br>
+                    When input changes → Vue re-evaluates all conditions → DOM updates automatically
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

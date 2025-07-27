@@ -3,8 +3,11 @@
 ## Active Tasks (Current Sprint)
 
 - [ ] **P2** T022 [M] [Claude] Review and update remaining vue_n files for consistency and educational value
-- [ ] **P2** T025 [S] [Claude] Update example_of_directives.html to Vue 3 and rename to vue_4b_conditional_directives.html
-- [ ] **P2** T026 [S] [Claude] Create vue_1b_cdn_integration.html explaining CDN usage
+  - [x] ✅ **P1** T027 [S] [Claude] Fix vue_4_use_conditional_evaluation.html - remove German boilerplate comments (2025-07-27)
+  - [x] ✅ **P1** T028 [M] [Claude] Update vue_5_show_image_databinding_bootstrap.html - consistent styling, explanations, Bootstrap version (2025-07-27)
+  - [x] ✅ **P1** T029 [M] [Claude] Update vue_5b_show_images_databinding_method.html - English method names, consistent structure (2025-07-27)
+  - [x] ✅ **P1** T030 [M] [Claude] Update vue_6_use_mounted_hook.html - English method names, consistent structure (2025-07-27)
+  - [x] ✅ **P1** T031 [L] [Claude] Completely rebuild vue_7_add_image.html - fix broken structure, rename to vue_7_dynamic_content_addition.html (2025-07-27)
 
 ---
 

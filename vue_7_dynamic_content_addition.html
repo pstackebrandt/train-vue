@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de">
+<!-- 
+  Vue 3.5.18 dynamic content addition example
+  Uses vue.esm-browser-3-5-18.js
+-->
+<!-- 
+=== VUE LEARNING EXAMPLE ===
+Purpose: Allow users to dynamically add content to Vue data arrays
+Content: User input, array manipulation, push(), form handling, dynamic lists
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue 3 Dynamic Content Addition</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  
+  <style>
+    /* Vue Learning Content - highlighted for educational focus */
+    .vue-example {
+      background: #f8f9fa;
+      border: 2px solid #0d6efd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px 0;
+    }
+    .image-card {
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .image-card:hover {
+      transform: scale(1.02);
+    }
+    .selected-card {
+      border: 3px solid #0d6efd !important;
+      box-shadow: 0 0 10px rgba(13, 110, 253, 0.3);
+    }
+  </style>
+
+  <script type="module">
+    'use strict';
+
+    import { createApp } from './vue.esm-browser-3-5-18.js';
+
+    createApp({
+      data() {
+        return {
+          // DYNAMIC ARRAY: Contains image objects that can be modified by user input
+          // Array manipulation (push, splice) is reactive - Vue updates v-for automatically
+          images: [
+            {
+              url: 'img/pexels-ellie-burgin-17302550.jpg',
+              description: 'Robin - Small songbird'
+            },
+            {
+              url: 'img/pexels-jiří-16725560.jpg',
+              description: 'Owl - Nocturnal bird of prey'
+            }
+          ],
+          selectedIndex: 0,    // Currently selected image for display
+          // FORM INPUT DATA: Bound to input fields via v-model
+          newImageUrl: '',     // v-model for URL input field
+          newDescription: ''   // v-model for description input field
+        }
+      },
+      methods: {
+        // ARRAY MANIPULATION: Adds new object to images array
+        // Vue detects array changes and automatically updates v-for rendering
+        addNewImage() {
+          if (this.newImageUrl.trim() && this.newDescription.trim()) {
+            // push() adds new object to end of array - Vue re-renders v-for
+            this.images.push({
+              url: this.newImageUrl.trim(),
+              description: this.newDescription.trim()
+            });
+            
+            // Clear input fields by resetting v-model bound variables
+            this.newImageUrl = '';
+            this.newDescription = '';
+          }
+        },
+        
+        // ITEM SELECTION: Updates selectedIndex for main image display
+        selectImage(index) {
+          this.selectedIndex = index;
+        },
+        
+        // ARRAY REMOVAL: Demonstrates array.splice() for removing items
+        removeImage(index) {
+          if (this.images.length > 1) { // Keep at least one image
+            this.images.splice(index, 1);
+            // Adjust selectedIndex if needed
+            if (this.selectedIndex >= this.images.length) {
+              this.selectedIndex = this.images.length - 1;
+            }
+          }
+        }
+      }
+    }).mount('#app');
+
+  </script>
+</head>
+
+<body class="bg-light">
+  <div class="container-fluid py-4">
+    <h1 class="text-center mb-4 text-primary">Vue 3 Dynamic Content Addition</h1>
+    
+    <!-- Learning Documentation -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-10">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h5 class="card-title text-secondary">📚 Purpose</h5>
+                <p class="card-text">Learn how to allow users to dynamically add, select, and remove content from Vue data arrays through form inputs.</p>
+              </div>
+              <div class="col-md-6">
+                <h5 class="card-title text-secondary">🔧 Content</h5>
+                <p class="card-text">User input handling, array manipulation (push/splice), form validation, dynamic content creation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vue Learning Example -->
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div id="app" class="vue-example">
+          <h3 class="text-primary mb-3">🎨 Dynamic Image Gallery</h3>
+          
+          <div class="alert alert-info mb-4">
+            💡 <strong>Interactive Demo:</strong> Add new images, click thumbnails to select, and remove unwanted items
+          </div>
+
+          <div class="row">
+            <!-- Main Image Display -->
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">Selected Image</h5>
+                </div>
+                <div class="card-body text-center">
+                  <img 
+                    :src="images[selectedIndex]?.url" 
+                    :alt="images[selectedIndex]?.description"
+                    class="img-fluid rounded mb-3"
+                    style="max-height: 300px; object-fit: cover;"
+                  />
+                  <p class="card-text">
+                    <strong>{{ images[selectedIndex]?.description }}</strong>
+                  </p>
+                  <small class="text-muted">
+                    Image {{ selectedIndex + 1 }} of {{ images.length }}
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Thumbnail Gallery -->
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">Gallery ({{ images.length }} images)</h5>
+                </div>
+                <div class="card-body">
+                  <!-- v-for HERE: Creates one card for each image in the array -->
+                  <div class="row">
+                    <div 
+                      v-for="(image, index) in images" 
+                      :key="index" 
+                      class="col-6 col-sm-4 mb-3"
+                    >
+                      <div 
+                        class="card image-card h-100"
+                        :class="{ 'selected-card': index === selectedIndex }"
+                        @click="selectImage(index)"
+                      >
+                        <img 
+                          :src="image.url" 
+                          :alt="image.description"
+                          class="card-img-top" 
+                          style="height: 80px; object-fit: cover;"
+                        />
+                        <div class="card-body p-2">
+                          <p class="card-text small mb-1">{{ image.description }}</p>
+                          <button 
+                            @click.stop="removeImage(index)"
+                            class="btn btn-danger btn-sm"
+                            v-if="images.length > 1"
+                            title="Remove image"
+                          >
+                            <i class="fas fa-trash"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add New Image Form -->
+          <div class="row mt-4">
+            <div class="col-lg-8 mx-auto">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">➕ Add New Image</h5>
+                </div>
+                <div class="card-body">
+                  <form @submit.prevent="addNewImage">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          <label for="image-url" class="form-label">Image URL</label>
+                          <!-- v-model HERE: Two-way binding between input and newImageUrl -->
+                          <input 
+                            id="image-url"
+                            v-model="newImageUrl" 
+                            type="url"
+                            class="form-control" 
+                            placeholder="https://example.com/image.jpg"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          <label for="image-description" class="form-label">Description</label>
+                          <!-- v-model HERE: Two-way binding between input and newDescription -->
+                          <input 
+                            id="image-description"
+                            v-model="newDescription" 
+                            type="text"
+                            class="form-control" 
+                            placeholder="Brief description of the image"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button 
+                        type="submit" 
+                        class="btn btn-success"
+                        :disabled="!newImageUrl.trim() || !newDescription.trim()"
+                      >
+                        <i class="fas fa-plus"></i> Add Image
+                      </button>
+                    </div>
+                  </form>
+                  
+                  <div class="alert alert-secondary mt-3 mb-0">
+                    <small>
+                      <strong>Example URLs:</strong><br>
+                      • https://images.pexels.com/photos/371589/pexels-photo-371589.jpeg<br>
+                      • https://picsum.photos/400/300?random=1
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Vue Dynamic Content Explanation -->
+        <div class="mt-4">
+          <div class="card border-secondary">
+            <div class="card-header bg-secondary text-white">
+              <h4 class="card-title mb-0">🔍 How Vue Dynamic Content Works</h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="text-primary">Array Manipulation</h5>
+                  <ul>
+                    <li><strong>push():</strong> Adds new items to end of array</li>
+                    <li><strong>splice():</strong> Removes items from specific index</li>
+                    <li><strong>v-for reactivity:</strong> Automatically re-renders when array changes</li>
+                    <li><strong>Validation:</strong> Check inputs before adding</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="text-primary">User Interaction</h5>
+                  <ul>
+                    <li><strong>v-model:</strong> Two-way binding for form inputs</li>
+                    <li><strong>@click:</strong> Handle selection and removal</li>
+                    <li><strong>@submit.prevent:</strong> Form submission without page reload</li>
+                    <li><strong>:disabled:</strong> Dynamic button state based on validation</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="alert alert-success mt-3 mb-0">
+                💡 <strong>Key Pattern:</strong> User Input → Array Modification → Automatic DOM Update. Vue's reactivity system handles all the re-rendering automatically when you modify the data.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

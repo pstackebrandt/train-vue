@@ -124,10 +124,10 @@ Content: methods, event handling, image arrays, user interaction
             <img class="gallery-image rounded" :src="imgURLs[index]" :height="height" alt="Gallery image" />
             
             <div class="mt-3">
-              <button v-on:click="dekrement" class="btn btn-primary mx-2" title="Previous Image">
+              <button v-on:click="previous" class="btn btn-primary mx-2" title="Previous Image">
                 <i class="fas fa-arrow-left"></i> Previous
               </button>
-              <button v-on:click="inkrement" class="btn btn-secondary mx-2" title="Next Image">
+              <button v-on:click="next" class="btn btn-secondary mx-2" title="Next Image">
                 Next <i class="fas fa-arrow-right"></i>
               </button>
             </div>
@@ -148,15 +148,43 @@ Content: methods, event handling, image arrays, user interaction
             </div>
           </details>
         </div>
+        
+        <!-- Vue Methods Explanation -->
+        <div class="mt-4">
+          <div class="card border-secondary">
+            <div class="card-header bg-secondary text-white">
+              <h4 class="card-title mb-0">🔍 How Vue Methods Work</h4>
+            </div>
+            <div class="card-body">
+              <ol class="mb-0">
+                <li><strong>Event Binding:</strong> <code>@click="previous"</code> calls the previous() method when button is clicked</li>
+                <li><strong>Data Modification:</strong> Methods can change data properties like <code>this.index</code></li>
+                <li><strong>Reactive Updates:</strong> When index changes, Vue automatically updates <code>{{ imgURLs[index] }}</code></li>
+                <li><strong>Array Navigation:</strong> Logic handles wrapping around at beginning/end of array</li>
+              </ol>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <div class="alert alert-success mb-0">
+                    💡 <strong>Method Benefits:</strong><br>
+                    • Encapsulate complex logic<br>
+                    • Reusable functionality<br>
+                    • Event-driven interactions<br>
+                    • Clean separation of concerns
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="alert alert-info mb-0">
+                    🎯 <strong>Navigation Pattern:</strong><br>
+                    Check bounds → Update index → Vue re-renders automatically
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  </main>
-  <!-- Einbindung der Bootstrap 5 JS-Datei -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-    integrity="sha384-vgysuL2xPm4JfK9WK3jFKwjDgKCzCZigZ4Ck5BdPtF+to8xM6B5z6W5x00+1632MG"
-    crossorigin="anonymous"></script>
 
 </body>
 

@@ -16,17 +16,6 @@ Content: mounted() hook, setInterval, lifecycle timing, automatic slideshow
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vue 3 Lifecycle Hooks</title>
-  <style>
-    /* .container {
-      position: relative;
-      display: block;
-      padding: 5px;
-      margin: 5px;
-      background: #eee;
-      border: 1px solid #aaa;
-      border-radius: 5px;
-    } */
-  </style>
 
   <!-- Einbindung der Bootstrap 5 CSS-Datei -->
   <!-- Bootstrap 5 CSS -->
@@ -62,7 +51,7 @@ Content: mounted() hook, setInterval, lifecycle timing, automatic slideshow
     createApp({
       data() {
         return {
-          // Bird images
+          // SLIDESHOW DATA: Image array and control variables for automatic slideshow
           imgURLs: [
             'img/pexels-ellie-burgin-17302550.jpg',
             'img/pexels-jiří-16725560.jpg',
@@ -70,27 +59,27 @@ Content: mounted() hook, setInterval, lifecycle timing, automatic slideshow
             'img/pexels-molnár-tamás-photography™-16681851.jpg',
             'img/pexels-rajukhan-pathan-16721458.jpg',
           ],
-          index: 0,
-          height: 300
+          index: 0,    // Current image index - changes automatically via mounted() hook
+          height: 300  // Image height for consistent display
         }
       },
       methods: {
-        dekrement() {
+        // Navigate to previous image, wraps around to last image when at beginning
+        previous() {
           this.index = (this.index > 0) ? this.index - 1 : this.imgURLs.length - 1
         },
-        inkrement() {
+        // Navigate to next image, wraps around to first image when at end
+        next() {
           this.index = (this.index < this.imgURLs.length - 1) ? this.index + 1 : 0;
         }
       },
       // LIFECYCLE HOOK: mounted() is called automatically after Vue mounts the component
       // This is perfect for setting up timers, fetching data, or other initialization tasks
-      mounted() { // mounted ist ein Lifecycle-Hook
-                // Diese Methode wird automatisch gefeuert, sobald diese Komponente in die Webseite eingehängt ist
-                
-                // Start automatic slideshow: call inkrement() every 5000ms (5 seconds)
-                // This creates an auto-advancing slideshow without user interaction
-                setInterval(this.inkrement, 5000);
-            }
+      mounted() {
+        // Start automatic slideshow: call next() every 5000ms (5 seconds)
+        // This creates an auto-advancing slideshow without user interaction
+        setInterval(this.next, 5000);
+      }
     }).mount('#app');
 
   </script>
@@ -131,14 +120,14 @@ Content: mounted() hook, setInterval, lifecycle timing, automatic slideshow
           </div>
 
           <div class="slideshow-container text-center">
-            <!-- Kurzsyntax für binding ist ":" -->
+            <!-- Attribute binding using : shorthand -->
             <img class="slideshow-image rounded" :src="imgURLs[index]" :height="height" alt="slideshow image" />
             
             <div class="mt-3">
-              <button v-on:click="dekrement" class="btn btn-primary mx-2" title="Previous Image">
+              <button v-on:click="previous" class="btn btn-primary mx-2" title="Previous Image">
                 <i class="fas fa-arrow-left"></i> Previous
               </button>
-              <button v-on:click="inkrement" class="btn btn-secondary mx-2" title="Next Image">
+              <button v-on:click="next" class="btn btn-secondary mx-2" title="Next Image">
                 Next <i class="fas fa-arrow-right"></i>
               </button>
             </div>
@@ -159,16 +148,43 @@ Content: mounted() hook, setInterval, lifecycle timing, automatic slideshow
             </div>
           </details>
         </div>
+        
+        <!-- Vue Lifecycle Hooks Explanation -->
+        <div class="mt-4">
+          <div class="card border-secondary">
+            <div class="card-header bg-secondary text-white">
+              <h4 class="card-title mb-0">🔍 How Vue Lifecycle Hooks Work</h4>
+            </div>
+            <div class="card-body">
+              <ol class="mb-0">
+                <li><strong>Component Mounting:</strong> Vue creates the component and attaches it to the DOM</li>
+                <li><strong>mounted() Hook:</strong> Called automatically after the component is fully mounted</li>
+                <li><strong>Timer Setup:</strong> <code>setInterval(this.next, 5000)</code> starts automatic progression</li>
+                <li><strong>Continuous Loop:</strong> Timer calls next() method every 5 seconds, updating the display</li>
+              </ol>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <div class="alert alert-success mb-0">
+                    💡 <strong>Common mounted() Uses:</strong><br>
+                    • API data fetching<br>
+                    • Timer/interval setup<br>
+                    • Event listener registration<br>
+                    • Third-party library initialization
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="alert alert-info mb-0">
+                    ⏰ <strong>Lifecycle Timing:</strong><br>
+                    created() → mounted() → updated() → unmounted()
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  </main>
-  <!-- Einbindung der Bootstrap 5 JS-Datei -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-    integrity="sha384-vgysuL2xPm4JfK9WK3jFKwjDgKCzCZigZ4Ck5BdPtF+to8xM6B5z6W5x00+1632MG"
-    crossorigin="anonymous"></script>
-
 </body>
 
 </html>
