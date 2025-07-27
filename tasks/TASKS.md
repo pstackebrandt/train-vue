@@ -2,7 +2,9 @@
 
 ## Active Tasks (Current Sprint)
 
-*No active tasks currently*
+- [ ] **P2** T022 [M] [Claude] Review and update remaining vue_n files for consistency and educational value
+- [ ] **P2** T025 [S] [Claude] Update example_of_directives.html to Vue 3 and rename to vue_4b_conditional_directives.html
+- [ ] **P2** T026 [S] [Claude] Create vue_1b_cdn_integration.html explaining CDN usage
 
 ---
 
@@ -87,6 +89,13 @@
   - ✅ Added visual explanation: "How v-model Two-Way Binding Works" with concrete examples
   - ✅ Marked v-model usage locations with comments for clarity
   - ✅ Updated Content section: "v-model directive, bidirectional binding, methods, @click events, programmatic data updates"
+
+- [x] ✅ **P2** T024 [M] [Claude] Clean up npm artifacts and enhance README with GitHub Pages deployment info (2025-07-27)
+  - ✅ Removed package.json and package-lock.json (misleading npm artifacts)
+  - ✅ Enhanced README.md with "What This Is / What This Is NOT" sections
+  - ✅ Added author attribution and educational value section
+  - ✅ Created DEPLOYMENT.md with comprehensive GitHub Pages hosting guide
+  - ✅ Renamed Readme.md to README.md and removed job interview references
 
 ---
 
