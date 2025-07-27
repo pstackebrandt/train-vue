@@ -1,7 +1,21 @@
 # Vue.js Training Project
 
+**Author:** Peter Stackebrandt
+
+## What This Project Is
+- **Educational Vue 3 learning collection** with progressive examples from basic integration to advanced features
+- **Standalone HTML files** that run directly in any modern browser without build tools
+- **Job interview portfolio piece** demonstrating solid understanding of Vue 3 fundamentals
+- **Self-contained examples** perfect for learning, teaching, or quick reference
+
+## What This Project Is NOT
+- **Not a production application** or modern Vue project structure
+- **Not using build tools** like Vite, Webpack, or Vue CLI
+- **Not component-based architecture** - each file is a complete learning example
+- **Not npm-managed** - no package.json, dependencies, or node_modules needed
+
 ## Purpose
-Learn Vue 3 concepts through standalone HTML examples that run directly in the browser.
+Master Vue 3 core concepts through hands-on examples that demonstrate real-world patterns without tooling complexity.
 
 ## How to Run
 
@@ -23,12 +37,22 @@ Learn Vue 3 concepts through standalone HTML examples that run directly in the b
 - **Browser**: Any modern browser (Chrome, Firefox, Safari, Edge)
 - **Local server** (optional): `python -m http.server 8000` or Live Server extension
 - **No dependencies**: Vue.js included as local file (`vue.esm-browser-3-5-18.js`)
+- **No build process**: No npm install, webpack, or compilation required
+
+## Educational Value
+This project demonstrates:
+- **Vue 3 fundamentals mastery** without framework scaffolding dependencies
+- **Progressive learning approach** from basic concepts to advanced features
+- **Clean, educational code** with comprehensive explanations
+- **Real-world patterns** applicable to production Vue applications
+- **Teaching methodology** through well-documented, standalone examples
 
 ## Project Structure
 - **HTML files**: Self-contained Vue 3 examples
 - **`img/`**: Sample images for examples
 - **`vue.esm-browser-3-5-18.js`**: Vue 3 ES module (local copy)
 - **`tasks/`**: Project management and task tracking
+- **`DEPLOYMENT.md`**: GitHub Pages hosting guide for portfolio presentation
 
 ## Code Sources & History
 - **Original**: Received in 2023 from teacher Christian Heisch (alfatraining JS course)
